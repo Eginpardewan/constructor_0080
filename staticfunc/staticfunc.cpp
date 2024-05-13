@@ -1,20 +1,53 @@
-// staticfunc.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+#include <iostream>	
+#include <string>	
+using namespace std;
 
-#include <iostream>
+class mahasiswa {
+private:
+	long long static int nim;
+public:
+	long long int id;
+	string nama;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+	void setID();
+	void printAll();
+
+	static void setNim(int pNim) { nim = pNim; /*Definisi Function*/ }
+	static int getNim() { return nim; }
+
+	mahasiswa(string pnama)
+	{
+		nama = pnama;
+		setID();
+	}
+};
+
+
+long long int mahasiswa::nim = 20220140080;
+
+void mahasiswa::setID() {
+	id = ++nim;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+void mahasiswa::printAll() {
+	cout << "ID   = " << id << endl;
+	cout << "Nama = " << nama << endl;
+	cout << endl;
+}
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+int main() {
+	mahasiswa mhs1("Egin Pardewan");
+	mahasiswa mhs2("Akramsyah");
+	mahasiswa::setNim(20220140080); //mengkases nim melalui static member function "setNim"
+	mahasiswa mhs3("Badai");
+	mahasiswa mhs4("Jeko");
+
+	mhs1.printAll();
+	mhs2.printAll();
+	mhs3.printAll();
+	mhs4.printAll();
+
+	cout << "akses dari luar object = " << mahasiswa::getNim() << endl; //mengkases nim melalui static member function "getNim"
+
+	return 0;
+}
