@@ -48,6 +48,7 @@ void Mahasiswa::cetak()
 	cout << " Nama = " << nama << endl;
 }
 
+
 int main() {
 	Mahasiswa mhs1;
 	Mahasiswa mhs2(20);
