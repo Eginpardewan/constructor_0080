@@ -12,6 +12,7 @@ public:
 	void isiData();
 };
 
+
 //Definisi member function
 angka::angka(int i) {//constructor
 	panjang = i;
@@ -38,6 +39,7 @@ void angka::isiData() {
 	}
 	cout << endl;
 }
+
 
 int main() {
 	angka belajarcpp(3); //comstructor dipanggil
