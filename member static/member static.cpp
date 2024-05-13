@@ -14,7 +14,7 @@ public:
 };
 
 
-int mahasiswa::nim = 0;
+int mahasiswa::nim = 10;
 
 
 void mahasiswa::setID() {
